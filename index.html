@@ -27,7 +27,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html,body{background:var(--bg);min-height:100vh;}
-body{color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;max-width:430px;margin:0 auto;overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-bottom:100px;}
+body{color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;max-width:430px;margin:0 auto;overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-bottom:24px;}
 
 /* HERO */
 .hero{background:linear-gradient(170deg,var(--bg) 0%,#EFEAE0 50%,var(--bg) 100%);padding:52px 20px 30px;position:relative;overflow:hidden;}
@@ -37,20 +37,7 @@ body{color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-heigh
 .hero h1{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:.92;letter-spacing:2px;margin-bottom:6px;}
 .hero h1 span{color:var(--gold);}
 .hero-sub{font-size:13px;color:var(--light);margin-bottom:24px;}
-.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
-.hstat{background:rgba(150,105,42,0.05);border:1px solid var(--border);border-radius:8px;padding:12px 8px;text-align:center;}
-.hstat-v{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--gold);}
-.hstat-l{font-size:10px;color:var(--muted);margin-top:2px;}
 
-/* BOTTOM NAV */
-.nav{position:fixed;bottom:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom,8px);}
-.nav-inner{display:flex;max-width:430px;margin:0 auto;}
-.nb{flex:1;padding:10px 2px 8px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;border-top:2px solid transparent;transition:all .2s;font-family:'DM Sans',sans-serif;}
-.nb .ico{font-size:24px;line-height:1;filter:grayscale(1) opacity(.5);transition:filter .2s;}
-.nb .lbl{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.03em;transition:color .2s;}
-.nb.on{border-top-color:var(--gold);}
-.nb.on .ico{filter:none;}
-.nb.on .lbl{color:var(--gold);}
 
 /* SCREENS */
 .screen{display:none;padding:20px 16px 20px;background:var(--bg);min-height:100vh;}
@@ -70,7 +57,7 @@ body{color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-heigh
 .tc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
 .tc-day{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
 .tc-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:var(--ink);line-height:1;}
-.tc-meta{font-size:11px;color:var(--muted);margin-top:3px;}
+.tc-meta{font-size:12.5px;color:var(--light);font-weight:600;margin-top:4px;}
 .tc-badge{font-size:9px;font-weight:700;padding:4px 10px;border-radius:4px;background:rgba(150,105,42,0.06);border:1px solid var(--tc-color,var(--gold));color:var(--tc-color,var(--gold));white-space:nowrap;flex-shrink:0;}
 .tc-body{margin-top:14px;border-top:1px solid rgba(0,0,0,0.08);padding-top:14px;display:none;}
 .tc-body.open{display:block;}
@@ -115,18 +102,6 @@ body{color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-heigh
 .tm-done-emoji{font-size:44px;margin-bottom:14px;}
 .tm-done-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:1px;margin-bottom:10px;}
 .tm-done-sub{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:30px;}
-
-/* SUIVI */
-.wk-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);cursor:pointer;}
-.wk-item:last-child{border-bottom:none;}
-.wk-check{width:24px;height:24px;border-radius:7px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;transition:all .15s;font-weight:700;}
-.wk-item.done .wk-check{background:var(--gold);border-color:var(--gold);color:#FFF;}
-.wk-label{font-size:13px;color:var(--light);}
-.wk-item.done .wk-label{color:var(--ink);}
-.streak-banner{background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.35);border-radius:10px;padding:16px 18px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;}
-.streak-v{font-family:'Bebas Neue',sans-serif;font-size:38px;line-height:1;color:var(--gold);}
-.streak-s{font-size:11px;color:var(--muted);}
-.btn-ghost{width:100%;padding:10px;margin-top:6px;background:rgba(0,0,0,0.035);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
 </style>
 </head>
 <body>
@@ -136,19 +111,7 @@ body{color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-heigh
   <div class="hero-tag">Programme Abdos · Séances chronométrées</div>
   <h1>ABDOS.<br><span>SÉANCE PAR SÉANCE.</span></h1>
   <div class="hero-sub">Une base d'exercices, un chrono intégré, à enrichir au fil du temps.</div>
-  <div class="hero-stats">
-    <div class="hstat"><div class="hstat-v" id="stat-sess">1</div><div class="hstat-l">Séance(s)</div></div>
-    <div class="hstat"><div class="hstat-v" id="stat-streak">0</div><div class="hstat-l">Séances faites</div></div>
-  </div>
 </div>
-
-<!-- BOTTOM NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <button id="nav-seances" class="nb on" data-tab="seances" onclick="go('seances',this)"><span class="ico">🔥</span><span class="lbl">Séances</span></button>
-    <button id="nav-suivi" class="nb" data-tab="suivi" onclick="go('suivi',this)"><span class="ico">✅</span><span class="lbl">Suivi</span></button>
-  </div>
-</nav>
 
 <!-- ════ SÉANCES ════ -->
 <div id="screen-seances" class="screen on">
@@ -158,26 +121,6 @@ body{color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-heigh
   <div id="sessions-list"></div>
 
   <div class="ibox ibox-teal" style="margin-top:4px"><b>D'autres séances arrivent bientôt.</b> Cette base va s'enrichir progressivement avec de nouvelles variantes.</div>
-
-  <div style="text-align:center;font-size:10px;color:var(--muted);opacity:.55;margin-top:22px;">Création par Yanis Bensaadi</div>
-</div>
-
-<!-- ════ SUIVI ════ -->
-<div id="screen-suivi" class="screen">
-  <div class="s-title">TON <span>SUIVI</span></div>
-  <div class="s-sub">Coche les séances faites cette semaine</div>
-
-  <div class="streak-banner">
-    <div><div class="streak-v" id="suivi-count">0</div><div class="streak-s">séances cette semaine</div></div>
-    <div style="font-size:30px">💪</div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">CETTE SEMAINE</div>
-    <div id="wk-list"></div>
-  </div>
-
-  <button class="btn-ghost" onclick="resetWeek()">Réinitialiser la semaine</button>
 
   <div style="text-align:center;font-size:10px;color:var(--muted);opacity:.55;margin-top:22px;">Création par Yanis Bensaadi</div>
 </div>
@@ -218,7 +161,10 @@ const SESSIONS = [
     id: 's1',
     name: 'Finisher Abdos',
     color: '#96692A',
-    badge: 'CORE',
+    badge: 'BODYWEIGHT',
+    materiel: 'Tapis',
+    difficulty: 'Avancé',
+    zone: 'Bas du ventre & gainage profond',
     rounds: 2,
     exercises: [
       { name: 'Ciseaux jambes tendues', sec: 30 },
@@ -229,15 +175,92 @@ const SESSIONS = [
       { name: 'Gainage sur les coudes', sec: 30 },
     ],
   },
+  {
+    id: 's2',
+    name: 'Abdos Poids du Corps',
+    color: '#0E7A87',
+    badge: 'BODYWEIGHT',
+    materiel: 'Tapis',
+    difficulty: 'Intermédiaire',
+    zone: 'Ventre complet & obliques',
+    rounds: 2,
+    exercises: [
+      { name: 'Mountain Climbers', sec: 30 },
+      { name: 'Crunch inversé', sec: 30 },
+      { name: 'Bicycle Crunch', sec: 30 },
+      { name: 'Planche avec touches d’épaules', sec: 30 },
+      { name: 'Leg Raises au sol', sec: 30 },
+    ],
+  },
+  {
+    id: 's3',
+    name: 'Abdos avec Haltère',
+    color: '#B84E08',
+    badge: 'HALTÈRE',
+    materiel: '1 haltère',
+    difficulty: 'Avancé',
+    zone: 'Obliques & gainage (avec charge)',
+    rounds: 2,
+    exercises: [
+      { name: 'Russian Twist avec haltère', sec: 30 },
+      { name: 'Sit-Up avec haltère', sec: 30 },
+      { name: 'Flexions latérales avec haltère', sec: 30 },
+      { name: 'Dead Bug avec haltère', sec: 30 },
+      { name: 'Planche avec tirage d’haltère', sec: 30 },
+    ],
+  },
+  {
+    id: 's4',
+    name: 'Abdos Poulie / Machines',
+    color: '#5C6B7A',
+    badge: 'MACHINES',
+    materiel: 'Poulie et machines de musculation',
+    difficulty: 'Intermédiaire',
+    zone: 'Haut du ventre & obliques',
+    rounds: 2,
+    exercises: [
+      { name: 'Crunch à la poulie haute', sec: 30 },
+      { name: 'Woodchopper à la poulie', sec: 30 },
+      { name: 'Pallof Press', sec: 30 },
+      { name: 'Relevés de genoux à la barre', sec: 30 },
+      { name: 'Crunch à la machine', sec: 30 },
+    ],
+  },
+  {
+    id: 's5',
+    name: 'Abdos Dynamiques',
+    color: '#0F7D5C',
+    badge: 'BODYWEIGHT',
+    materiel: 'Tapis',
+    difficulty: 'Avancé',
+    zone: 'Bas du ventre (rythme cardio)',
+    rounds: 2,
+    exercises: [
+      { name: 'High Knees', sec: 30 },
+      { name: 'Plank Jacks', sec: 30 },
+      { name: 'Toe Touches', sec: 30 },
+      { name: 'Flutter Kicks', sec: 30 },
+      { name: 'V-Ups', sec: 30 },
+    ],
+  },
+  {
+    id: 's6',
+    name: 'Abdos Mixte',
+    color: '#B8442E',
+    badge: 'MIXTE',
+    materiel: 'Tapis + haltère facultatif',
+    difficulty: 'Intermédiaire',
+    zone: 'Bas du ventre & obliques',
+    rounds: 2,
+    exercises: [
+      { name: 'Crunch inversé', sec: 30 },
+      { name: 'Russian Twist avec haltère', sec: 30 },
+      { name: 'Mountain Climbers', sec: 30 },
+      { name: 'Leg Raises', sec: 30 },
+      { name: 'Planche', sec: 30 },
+    ],
+  },
 ];
-
-/* ===== NAVIGATION ===== */
-function go(tab, el){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
-  document.getElementById('screen-'+tab).classList.add('on');
-  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
-  el.classList.add('on');
-}
 
 /* ===== RENDU DES SÉANCES ===== */
 function sessionTotalTime(s){
@@ -246,6 +269,11 @@ function sessionTotalTime(s){
 function fmtMin(totalSec){
   const m = Math.round(totalSec/60);
   return m + ' min';
+}
+function diffColor(level){
+  if(level === 'Débutant') return 'var(--teal)';
+  if(level === 'Intermédiaire') return 'var(--gold)';
+  return 'var(--red)'; // Avancé
 }
 function renderSessions(){
   const wrap = document.getElementById('sessions-list');
@@ -262,6 +290,9 @@ function renderSessions(){
           <div class="tc-day">Séance ${idx+1}</div>
           <div class="tc-name">${s.name}</div>
           <div class="tc-meta">${s.exercises.length} exercices · ${s.rounds} tours · ~${fmtMin(total)}</div>
+          <div class="tc-meta">🎒 ${s.materiel}</div>
+          <div class="tc-meta">🎯 Niveau : <b style="color:${diffColor(s.difficulty)}">${s.difficulty}</b></div>
+          <div class="tc-meta">🧭 Zone ciblée : ${s.zone}</div>
         </div>
         <div class="tc-badge">${s.badge} ▼</div>
       </div>
@@ -279,7 +310,6 @@ function renderSessions(){
     `;
     wrap.appendChild(card);
   });
-  document.getElementById('stat-sess').textContent = SESSIONS.length;
 }
 function togBody(card){
   const body = card.querySelector('.tc-body');
@@ -400,7 +430,6 @@ function finishTimer(){
   document.getElementById('tm-controls').style.display = 'none';
   document.getElementById('tm-done').classList.add('on');
   document.getElementById('tm-done-sub').textContent = session ? (session.name + ' · ' + session.rounds + ' tours complétés') : '';
-  markSessionDoneToday(tmCurrentSessionId);
 }
 
 function closeTimer(){
@@ -409,54 +438,8 @@ function closeTimer(){
   document.getElementById('timer-ov').classList.remove('on');
 }
 
-/* ===== SUIVI (localStorage) ===== */
-const DAYS = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
-function getWeekData(){
-  try{ return JSON.parse(localStorage.getItem('abdos-week')) || {}; }
-  catch(e){ return {}; }
-}
-function saveWeekData(d){
-  localStorage.setItem('abdos-week', JSON.stringify(d));
-}
-function renderWeek(){
-  const data = getWeekData();
-  const wrap = document.getElementById('wk-list');
-  wrap.innerHTML = '';
-  DAYS.forEach(day=>{
-    const done = !!data[day];
-    const item = document.createElement('div');
-    item.className = 'wk-item' + (done ? ' done' : '');
-    item.onclick = ()=>toggleDay(day);
-    item.innerHTML = `<div class="wk-check">${done ? '✓' : ''}</div><div class="wk-label">${day}</div>`;
-    wrap.appendChild(item);
-  });
-  const count = DAYS.filter(d=>data[d]).length;
-  document.getElementById('suivi-count').textContent = count;
-  document.getElementById('stat-streak').textContent = count;
-}
-function toggleDay(day){
-  const data = getWeekData();
-  data[day] = !data[day];
-  saveWeekData(data);
-  renderWeek();
-}
-function markSessionDoneToday(){
-  const jsDay = new Date().getDay(); // 0=dim
-  const idx = jsDay === 0 ? 6 : jsDay - 1;
-  const day = DAYS[idx];
-  const data = getWeekData();
-  data[day] = true;
-  saveWeekData(data);
-  renderWeek();
-}
-function resetWeek(){
-  saveWeekData({});
-  renderWeek();
-}
-
 /* ===== INIT ===== */
 renderSessions();
-renderWeek();
 </script>
 </body>
 </html>

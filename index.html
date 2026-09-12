@@ -327,15 +327,38 @@ let tmInterval = null;
 let tmSessionRounds = 1;
 let tmCurrentSessionId = null;
 let audioCtx = null;
+let wakeLock = null;
+
+async function requestWakeLock(){
+  try{
+    if('wakeLock' in navigator){
+      wakeLock = await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release', () => { wakeLock = null; });
+    }
+  }catch(e){}
+}
+function releaseWakeLock(){
+  if(wakeLock){
+    wakeLock.release().catch(()=>{});
+    wakeLock = null;
+  }
+}
+document.addEventListener('visibilitychange', () => {
+  if(document.visibilityState === 'visible' && tmRunning && !wakeLock){
+    requestWakeLock();
+  }
+});
 
 function beep(freq, dur){
   try{
     if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if(audioCtx.state === 'suspended') audioCtx.resume();
     const o = audioCtx.createOscillator();
     const g = audioCtx.createGain();
     o.frequency.value = freq;
     o.connect(g); g.connect(audioCtx.destination);
-    g.gain.setValueAtTime(0.15, audioCtx.currentTime);
+    g.gain.setValueAtTime(0.7, audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
     o.start();
     o.stop(audioCtx.currentTime + dur);
   }catch(e){}
@@ -374,6 +397,7 @@ function startTimer(sessionId){
   renderTimerStep();
   clearInterval(tmInterval);
   tmInterval = setInterval(tick, 1000);
+  requestWakeLock();
 }
 
 function renderTimerStep(){
@@ -420,10 +444,16 @@ function skipStep(){
 function togglePlay(){
   tmRunning = !tmRunning;
   document.getElementById('tm-playbtn').textContent = tmRunning ? 'Pause' : 'Reprendre';
+  if(tmRunning){
+    requestWakeLock();
+  } else {
+    releaseWakeLock();
+  }
 }
 
 function finishTimer(){
   clearInterval(tmInterval);
+  releaseWakeLock();
   vibrate([150,80,150]);
   const session = SESSIONS.find(s=>s.id===tmCurrentSessionId);
   document.getElementById('tm-mid').style.display = 'none';
@@ -435,6 +465,7 @@ function finishTimer(){
 function closeTimer(){
   clearInterval(tmInterval);
   tmRunning = false;
+  releaseWakeLock();
   document.getElementById('timer-ov').classList.remove('on');
 }
 
